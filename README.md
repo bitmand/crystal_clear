@@ -20,6 +20,12 @@
 require "crystal_clear"
 ```
 
+Try with examples in `examples/` dir:
+
+```shell
+crystal run example/spinner.cr
+```
+
 ### Spinner
 
 ```crystal
@@ -29,7 +35,6 @@ CrystalClear::Spinner.start "Loading..."
 sleep 5.seconds  # do some work for 5 sec
 CrystalClear::Spinner.stop "done!\n"
 ```
-(source in [examples/spinner.cr](examples/spinner.cr))
 
 ## Contributing
 
