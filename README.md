@@ -36,6 +36,17 @@ sleep 5.seconds  # do some work for 5 sec
 CrystalClear::Spinner.stop "done!\n"
 ```
 
+### Terminal Size
+
+```crystal
+require "crystal_clear"
+
+term = CrystalClear::Terminal.new
+puts term.size.cols
+puts term.size.rows
+```
+
+
 ## Contributing
 
 1. Fork it (<https://github.com/bitmand/crystal_clear/fork>)
