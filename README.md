@@ -1,5 +1,7 @@
 # Crystal Clear
 
+[![GitHub release](https://img.shields.io/github/release/bitmand/crystal_clear.svg)](https://github.com/bitmand/crystal_clear/releases)
+
 [Crystal](https://crystal-lang.org/) library for building interactive and colorful terminal applications.
 
 ## Installation
