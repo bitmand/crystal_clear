@@ -3,7 +3,7 @@ require "./spinner"
 
 # TODO: Write documentation for `CrystalClear`
 module CrystalClear
-  VERSION = "0.2.0"
+  VERSION = "0.2.1"
 
   # ansi escape character
   ESC = "\e["

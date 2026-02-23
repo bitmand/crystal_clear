@@ -10,8 +10,8 @@ lib LibC
   fun ioctl(fd : LibC::Int, request : LibC::ULong, ...) : LibC::Int
 
   struct TTYSize
-    cols : UInt16
     rows : UInt16
+    cols : UInt16
     width : UInt16
     height : UInt16
   end
