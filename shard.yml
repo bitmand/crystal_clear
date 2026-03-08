@@ -1,5 +1,5 @@
 name: crystal_clear
-version: 0.2.1
+version: 0.2.2
 
 authors:
   - Lasse Brandt Thomsen <lasse@bitmand.dk>
@@ -7,7 +7,3 @@ authors:
 crystal: '>= 1.19.1'
 
 license: MIT
-
-development_dependencies:
-  ameba:
-    github: crystal-ameba/ameba
