@@ -48,6 +48,36 @@ puts term.size.cols
 puts term.size.rows
 ```
 
+### Colors
+
+Print colored text:
+
+```crystal
+require "crystal_clear"
+
+CrystalClear::Color.print("text on purple background from :dark color scheme\n", :dark, bg: 13)
+```
+
+Set foreground and background colors:
+
+```crystal
+require "crystal_clear"
+
+CrystalClear::Color.set(:dark, fg: 0)
+puts "dark red text from :dark color scheme"
+CrystalClear::Color.set(:gray, bg: 1)
+puts "dark red text on light gray background from :gray color scheme"
+CrystalClear::Color.reset
+puts "regular colored text"
+```
+
+Show the different color schemes:
+
+```shell
+crystal run example/colors.cr
+```
+
+![color-schemes](example/color-schemes.png)
 
 ## Contributing
 

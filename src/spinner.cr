@@ -4,17 +4,17 @@ module CrystalClear
     FRAMES = %w{⠋ ⠙ ⠸ ⠴ ⠦ ⠇}
     INTERVAL = 1.second / 10
 
-    def Spinner.start(text = "")
+    def Spinner.start(text = "", color_scheme = :bright)
       color_idx = 0
       text.size.zero? || print text
       spawn do
         while true
           FRAMES.each do |char|
-            print ESC + "38;5;%sm%s " % [COLORS[color_idx], char]
+            print ESC + "38;5;%sm%s " % [Color::SCHEMES[color_scheme][color_idx], char]
             sleep INTERVAL
             print ESC + "2D"
             color_idx += 1
-            color_idx = 0 if color_idx >= COLORS.size
+            color_idx = 0 if color_idx >= Color::SCHEMES[color_scheme].size
           end
         end
       end

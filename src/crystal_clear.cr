@@ -1,13 +1,12 @@
-require "./terminal"
+require "./color"
 require "./spinner"
+require "./terminal"
 
 # TODO: Write documentation for `CrystalClear`
 module CrystalClear
-  VERSION = "0.2.1"
+  VERSION = "0.2.2"
 
-  # ansi escape character
-  ESC = "\e["
-
-  # pastel color rainbow
-  COLORS = %w{167 173 179 185 149 113 077 078 079 080 074 068 062 098 134 170 169 168}
+  # ansi characters
+  ESC = "\e["             # escape
+  ESC_RESET = ESC + "0m"  # reset
 end
