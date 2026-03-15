@@ -5,7 +5,7 @@ require "./hyperlink"
 
 # TODO: Write documentation for `CrystalClear`
 module CrystalClear
-  VERSION = "0.2.2"
+  VERSION = "0.3.0"
 
   # escape sequences
   # https://en.wikipedia.org/wiki/ANSI_escape_code#Fe_Escape_sequences
