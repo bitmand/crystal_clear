@@ -7,7 +7,7 @@ module CrystalClear
     def initialize
       # set terminal size
       self.refresh_size
-      # update size if terminal is resized
+      # update size if terminal is resized during runtime
       Signal::WINCH.trap do
         self.refresh_size
       end

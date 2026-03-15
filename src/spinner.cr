@@ -10,9 +10,9 @@ module CrystalClear
       spawn do
         while true
           FRAMES.each do |char|
-            print ESC + "38;5;%sm%s " % [Color::SCHEMES[color_scheme][color_idx], char]
+            print ESC_CSI + "38;5;%sm%s " % [Color::SCHEMES[color_scheme][color_idx], char]
             sleep INTERVAL
-            print ESC + "2D"
+            print ESC_CSI + "2D"
             color_idx += 1
             color_idx = 0 if color_idx >= Color::SCHEMES[color_scheme].size
           end
@@ -21,11 +21,8 @@ module CrystalClear
     end
 
     def Spinner.stop(text = "")
-      # reset last spinner chars
-      print ESC + "2D  "
-      print ESC + "2D"
-      # reset color
-      print ESC + "0m"
+      # reset spinner chars and color
+      print ESC_CSI + "2D  " + ESC_CSI + "2D" + ESC_CSI + "0m"
       # print message
       text.size.zero? || print text
     end

@@ -22,10 +22,13 @@
 require "crystal_clear"
 ```
 
-Try with examples in `examples/` dir:
+## Examples
 
 ```shell
-crystal run example/spinner.cr
+crystal run example/spinner.cr        # loading spinner
+crystal run example/terminal-size.cr  # prints terminal size (rows, cols, pixels)
+crystal run example/colors.cr         # prints color schemes
+crystal run example/hyperlinks.cr     # prints text with working links
 ```
 
 ### Spinner
@@ -38,6 +41,8 @@ sleep 5.seconds  # do some work for 5 sec
 CrystalClear::Spinner.stop "done!\n"
 ```
 
+Try it: `crystal run example/spinner.cr`
+
 ### Terminal Size
 
 ```crystal
@@ -46,6 +51,15 @@ require "crystal_clear"
 term = CrystalClear::Terminal.new
 puts term.size.cols
 puts term.size.rows
+```
+
+Try it:
+
+```shell
+$ crystal run example/terminal-size.cr
+Cols: 222
+Rows: 38
+Pixels: 3552 x 1520
 ```
 
 ### Colors
@@ -71,13 +85,26 @@ CrystalClear::Color.reset
 puts "regular colored text"
 ```
 
-Show the different color schemes:
+Print the color schemes:
 
 ```shell
 crystal run example/colors.cr
 ```
 
 ![color-schemes](example/color-schemes.png)
+
+### Hyperlinks
+
+Print working hyperlinks (in [supported terminals](https://github.com/Alhadis/OSC8-Adoption/)):
+
+```crystal
+require "crystal_clear"
+
+link = CrystalClear::Hyperlink.new("https://github.com/", "Github")
+puts "Link to %s (hold Ctrl/Cmd and click the link)" % link.print
+```
+
+Try it: `crystal run example/hyperlinks.cr`
 
 ## Contributing
 

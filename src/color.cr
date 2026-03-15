@@ -17,12 +17,12 @@ module CrystalClear
 
     # set foreground (text) color
     def Color.ansi_fg(color : String) : String
-      ESC + "38;5;%sm" % color
+      ESC_CSI + "38;5;%sm" % color
     end
 
     # set background color
     def Color.ansi_bg(color : String) : String
-      ESC + "48;5;%sm" % color
+      ESC_CSI + "48;5;%sm" % color
     end
 
     # print foreground/background ansi color codes from a color scheme
@@ -33,7 +33,7 @@ module CrystalClear
 
     # print ansi reset
     def Color.reset
-      print ESC_RESET
+      print CSI_RESET
     end
 
     # print text with colors from a color scheme
