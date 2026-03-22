@@ -1,12 +1,13 @@
 # TODO: Write documentation for `CrystalClear`
 module CrystalClear
   class Spinner
-    FRAMES = %w{⠋ ⠙ ⠸ ⠴ ⠦ ⠇}
-    #FRAMES = %w{⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏}
+    #FRAMES = %w{⠋ ⠙ ⠸ ⠴ ⠦ ⠇}
+    #FRAMES = %w{⠷ ⠯ ⠟ ⠻ ⠽ ⠾}
+    FRAMES = %w{⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏}
     #FRAMES = %w{▁ ▃ ▅ ▆ ▇ █ ▇ ▆ ▅ ▃}
     INTERVAL = 1.second / 10
 
-    def Spinner.start(text = "", color_scheme = :bright)
+    def Spinner.start(text = "", color_scheme = :light)
       color_idx = 0
       text.size.zero? || print text
       spawn do
