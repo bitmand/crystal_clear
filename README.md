@@ -69,7 +69,7 @@ Print colored text:
 ```crystal
 require "crystal_clear"
 
-CrystalClear::Color.print("text on purple background from :dark color scheme\n", :dark, bg: 13)
+CrystalClear::Color.print("text on purple background from :dark color scheme", :dark, bg: 13)
 ```
 
 Set foreground and background colors:
