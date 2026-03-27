@@ -25,23 +25,11 @@ require "crystal_clear"
 ## Examples
 
 ```shell
-crystal run example/spinner.cr        # loading spinner
 crystal run example/terminal-size.cr  # prints terminal size (rows, cols, pixels)
+crystal run example/spinner.cr        # loading spinner
 crystal run example/colors.cr         # prints color schemes
 crystal run example/hyperlinks.cr     # prints text with working links
 ```
-
-### Spinner
-
-```crystal
-require "crystal_clear"
-
-CrystalClear::Spinner.start "Loading..."
-sleep 5.seconds  # do some work for 5 sec
-CrystalClear::Spinner.stop "done!\n"
-```
-
-Try it: `crystal run example/spinner.cr`
 
 ### Terminal Size
 
@@ -61,6 +49,18 @@ Cols: 222
 Rows: 38
 Pixels: 3552 x 1520
 ```
+
+### Spinner
+
+```crystal
+require "crystal_clear"
+
+spinner = CrystalClear::Spinner.new(text: "Loading something... ")
+sleep 5.seconds  # do some work for 5 sec
+spinner.stop "done!"
+```
+
+Try it: `crystal run example/spinner.cr`
 
 ### Colors
 
@@ -85,7 +85,17 @@ CrystalClear::Color.reset
 puts "regular colored text"
 ```
 
-Print the color schemes:
+Print rainbow text:
+
+```crystal
+require "crystal_clear"
+
+color = CrystalClear::Color.new(:pastel)
+"This text is pastel rainbow colored".each_char{ |char| print color.next_fg + char }
+puts color.reset
+```
+
+Print color schemes:
 
 ```shell
 crystal run example/colors.cr

@@ -1,5 +1,5 @@
 module CrystalClear
-  struct Color
+  class Color
     SCHEMES = {
       # 16 original 4-bit colors
       std: %w{0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15},
@@ -14,6 +14,37 @@ module CrystalClear
       # 18 pastel colors
       pastel: %w{167 173 179 185 149 113 077 078 079 080 074 068 062 098 134 170 169 168},
     }
+
+    @scheme_id : Symbol
+    @color_idx : UInt8 = 0
+
+    def initialize(@scheme_id)
+    end
+
+    def scheme
+      SCHEMES[@scheme_id]
+    end
+
+    def next
+      if @color_idx >= scheme.size
+        @color_idx = 1
+      else
+        @color_idx += 1
+      end
+      scheme[@color_idx - 1]
+    end
+
+    def next_fg
+      Color.ansi_fg(self.next)
+    end
+
+    def next_bg
+      Color.ansi_bg(self.next)
+    end
+
+    def reset
+      CSI_RESET
+    end
 
     # set foreground (text) color
     def Color.ansi_fg(color : String) : String

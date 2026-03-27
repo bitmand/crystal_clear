@@ -11,10 +11,16 @@ describe CrystalClear do
     shard_version.should eq(CrystalClear::VERSION)
   end
 
-  # runs examples and check raw output
+  # run colors example and check raw output
   it "checks colors example output" do
     Process.run("crystal", args: ["run", "example/colors.cr"], output: stdout = IO::Memory.new)
     stdout.to_s.should eq(File.read("spec/colors.raw"))
+  end
+
+  # run color rainbow text example and check raw output
+  it "checks color_rainbow_text example output" do
+    Process.run("crystal", args: ["run", "example/color_rainbow_text.cr"], output: stdout = IO::Memory.new)
+    stdout.to_s.should eq(File.read("spec/color_rainbow_text.raw"))
   end
 
   # hyperlink
